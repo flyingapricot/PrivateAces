@@ -8273,9 +8273,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 3700384836835788650, guid: 77aaa59e3b1c2524e893c50dbae4740f, type: 3}
   interval: 3.5
-  minSpawn: 0
+  minSpawn: 5
+  maxSpawn: 15
   player: {fileID: 272813339}
-  speed: 5
 --- !u!4 &1013121763
 Transform:
   m_ObjectHideFlags: 0

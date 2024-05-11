@@ -13,11 +13,11 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField]
     private float minSpawn = 1;
+    [SerializeField]
     private float maxSpawn = 2;
 
 
     public Transform player; //Current position of the player
-    public float speed = 5.0f; //Speed of the player
 
 
     void Awake()
