@@ -21,29 +21,24 @@ public class PlayerHealth : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(20);
-        }    
+        }
     }
 
+    // Function to handle player taking damage
     public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
-    }
-
-    /*public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         if (currentHealth < 0)
             currentHealth = 0;
-        healthBar.SetHealth(currentHealth);  // Update the health bar on taking damage
+        healthBar.SetHealth(currentHealth); // Update the health bar on taking damage
     }
 
-    public void Heal(float amount)
+    public void Heal(int heal)
     {
-        currentHealth += amount;
+        currentHealth += heal;
         if (currentHealth > maxHealth)
             currentHealth = maxHealth;
         healthBar.SetHealth(currentHealth);  // Update the health bar on healing
-    }*/
+    }
 }
 
