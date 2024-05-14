@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.W)) { Shoot(DirectionEnum.TOP); }
+        if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.W)) {Shoot(DirectionEnum.TOP); }
         if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.S)) { Shoot(DirectionEnum.BOTTOM); }
         if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.A)) { Shoot(DirectionEnum.LEFT); }
         if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.D)) { Shoot(DirectionEnum.RIGHT); }
