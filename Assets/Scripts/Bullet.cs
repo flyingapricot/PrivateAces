@@ -14,6 +14,15 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
+/*    IEnumerator DelayedAction(float delayTime)
+    {
+        // Wait for the specified delay time
+        yield return new WaitForSeconds(delayTime);
+
+        // Code to execute after the delay
+        Debug.Log("This message is shown after a delay of " + delayTime + " seconds.");
+    }*/
+
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Debug.Log(hitInfo.name);
