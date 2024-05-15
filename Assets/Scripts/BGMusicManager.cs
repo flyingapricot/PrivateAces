@@ -10,6 +10,15 @@ public class BGMManager : MonoBehaviour
         PlayMainMenuBGM();
     }
 
+    public void StopBGM()
+    {
+        if (gameplayBGM.isPlaying || mainMenuBGM.isPlaying)
+        {
+            gameplayBGM.Stop();
+            mainMenuBGM.Stop();
+        }
+    }
+
     public void PlayMainMenuBGM()
     {
         if (!mainMenuBGM.isPlaying)

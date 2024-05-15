@@ -9,12 +9,12 @@ public class ToggleSoundButton : MonoBehaviour
     public Sprite soundOnImage; // Reference to the "sound on" image
     public Sprite muteImage;    // Reference to the "mute" image
     public VideoPlayer[] videoPlayers; // Array of VideoPlayer references
-    public VolumeControl volumeControl; // Reference to the VolumeControl script
     private Button button;      // Reference to the Button component
     public Image buttonImage;  // Reference to the Image component of the Button
     private bool isMuted = false; // Flag to track the mute state
     private bool canToggle = true; // Flag to prevent rapid toggling
-    public float toggleCooldown = 0.2f; // Cooldown time in seconds
+    public float toggleCooldown = 0f; // Cooldown time in seconds
+    public VolumeControl volumeControl; // Reference to the VolumeControl script
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class ToggleSoundButton : MonoBehaviour
         buttonImage.sprite = soundOnImage; // Set the initial image
     }
 
-    void ToggleSound()
+    public void ToggleSound()
     {
         if (canToggle)
         {

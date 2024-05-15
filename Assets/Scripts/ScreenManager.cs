@@ -8,7 +8,6 @@ public class ScreenManager : MonoBehaviour
     public GameObject mainMenu;
     public GameObject settings;
     public GameObject gameplay;
-    public GameObject pauseMenu;
     public GameObject deathScreen;
     public GameResetting resetGameScript;
     
@@ -23,7 +22,6 @@ public class ScreenManager : MonoBehaviour
         // Ensure all screen objects are correctly initialized
         mainMenu.SetActive(true);
         gameplay.SetActive(false);
-        pauseMenu.SetActive(false);
         settings.SetActive(false);
         deathScreen.SetActive(false);
 
@@ -63,6 +61,16 @@ public class ScreenManager : MonoBehaviour
         }
     }
 
+    public void PauseGame()
+    {
+        Time.timeScale = 0f; // Pause the game
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f; // Resume the game
+    }
+
     public void StartGame()
     {
         if (resetGameScript != null)
@@ -78,9 +86,10 @@ public class ScreenManager : MonoBehaviour
         // Switches to Gameplay
         mainMenu.SetActive(false);
         gameplay.SetActive(true);
-        pauseMenu.SetActive(false);
         settings.SetActive(false);
         deathScreen.SetActive(false);
+
+        ResumeGame(); // Ensure the game is running
 
         // Switch BGM to gameplay
         if (bgmManager != null)
@@ -89,20 +98,19 @@ public class ScreenManager : MonoBehaviour
         }
     }
 
-    public void PauseGame()
-    {
-
-    }
-
     public void OpenSettings()
     {
         Debug.Log("Settings button clicked");
+        PauseGame(); // Pause the game when opening settings
         // Switches to Settings Menu
-        mainMenu.SetActive(false);
-        gameplay.SetActive(false);
-        pauseMenu.SetActive(false);
         settings.SetActive(true);
-        deathScreen.SetActive(false);
+    }
+
+    public void CloseSettings()
+    {
+        Debug.Log("Close Settings button clicked");
+        settings.SetActive(false);
+        ResumeGame(); // Resume the game when closing settings
     }
 
     public void ReturnMenu()
@@ -120,9 +128,10 @@ public class ScreenManager : MonoBehaviour
         // Switches to Start Game Menu
         mainMenu.SetActive(true);
         gameplay.SetActive(false);
-        pauseMenu.SetActive(false);
         settings.SetActive(false);
         deathScreen.SetActive(false);
+
+        ResumeGame(); // Ensure the game is running
 
         // Switch BGM to main menu
         if (bgmManager != null)
@@ -135,12 +144,16 @@ public class ScreenManager : MonoBehaviour
     void ShowDeathScreen()
     {
         Debug.Log("Player Died");
-        mainMenu.SetActive(false);
         gameplay.SetActive(false);
-        pauseMenu.SetActive(false);
-        settings.SetActive(false);
         deathScreen.SetActive(true);
-        // Optionally, you can pause the game or perform other actions here
+
+        resetGameScript.ResetGame();
+
+        // Switch BGM to main menu
+        if (bgmManager != null)
+        {
+            bgmManager.StopBGM();
+        }
     }
 }
 

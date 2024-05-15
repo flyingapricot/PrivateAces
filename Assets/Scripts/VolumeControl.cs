@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -5,14 +6,18 @@ using UnityEngine.Video;
 public class VolumeControl : MonoBehaviour
 {
     public Slider volumeSlider; // Reference to the slider
-    public AudioSource[] audioSources; // Array of AudioSource references
+    public GameObject audioSourceParent; // Parent GameObject that holds all audio sources
     public VideoPlayer[] videoPlayers; // Array of VideoPlayer references
     public ToggleSoundButton toggleSoundButton; // Reference to the toggle sound button script
-
+    
+    private List<AudioSource> audioSources; // List to store all audio sources
     private float lastVolume; // To store the last volume before muting
 
     void Start()
     {
+        // Initialize the audio sources list
+        audioSources = new List<AudioSource>(audioSourceParent.GetComponentsInChildren<AudioSource>());
+
         // Set the slider's value to its maximum value initially (0 - 5)
         volumeSlider.value = volumeSlider.maxValue;
 
@@ -70,10 +75,12 @@ public class VolumeControl : MonoBehaviour
     {
         lastVolume = volumeSlider.value; // Store the current volume before muting
         volumeSlider.value = 0;
+        SetVolume(0); // Ensure the volume is updated
     }
 
     public void Unmute()
     {
         volumeSlider.value = lastVolume;
+        SetVolume(lastVolume); // Ensure the volume is updated
     }
 }
