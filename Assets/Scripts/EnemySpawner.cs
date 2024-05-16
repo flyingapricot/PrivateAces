@@ -8,6 +8,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] //To access prefab
     private GameObject enemy;
 
+    //public Animator animator;
+
     [SerializeField] //Number of seconds till next enemy is spawned
     private float interval;
 
@@ -33,9 +35,11 @@ public class EnemySpawner : MonoBehaviour
         {
 
             Enemy e = enemy.GetComponent<Enemy>();
+            
             if(e != null)
             {
                 e.player = player;
+                //e.animator = animator;
             }
             //Instantiate the enemy prefab
             Instantiate(enemy, transform.position, Quaternion.identity);
