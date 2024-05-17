@@ -965,8 +965,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25745ddb7e40574a861f0ba9f4229fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 818440516}
+  firePoint_Left: {fileID: 0}
+  firePoint_Right: {fileID: 0}
+  firePoint_Bottom: {fileID: 0}
+  firePoint_Top: {fileID: 0}
   bulletPrefab: {fileID: 1901397443294861216, guid: ed421c2cc346bc84dbacd3dd806e5d48, type: 3}
+  mainCamera: {fileID: 0}
 --- !u!114 &272813341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1391,7 +1395,9 @@ MonoBehaviour:
   health: 100
   player: {fileID: 0}
   speed: 5
+  animator: {fileID: 0}
   damagePerSecond: 5
+  rb: {fileID: 0}
 --- !u!114 &457976446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60235,7 +60241,9 @@ MonoBehaviour:
   health: 5000
   player: {fileID: 1142223281}
   speed: 1
+  animator: {fileID: 1077069095}
   damagePerSecond: 5
+  rb: {fileID: 0}
 --- !u!114 &1077069092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60285,7 +60293,7 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 4.8, y: 4.8}
-    newSize: {x: 0.24, y: 0.24}
+    newSize: {x: 4.8, y: 4.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -60398,10 +60406,10 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.24, y: 0.24}
+  m_Size: {x: 4.8, y: 4.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1122718116
@@ -60610,8 +60618,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25745ddb7e40574a861f0ba9f4229fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 0}
+  firePoint_Left: {fileID: 1453447388}
+  firePoint_Right: {fileID: 15474219}
+  firePoint_Bottom: {fileID: 907670247}
+  firePoint_Top: {fileID: 617008172}
   bulletPrefab: {fileID: 1901397443294861216, guid: ed421c2cc346bc84dbacd3dd806e5d48, type: 3}
+  mainCamera: {fileID: 1821016262}
 --- !u!58 &1142223283
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -60774,7 +60786,7 @@ SpriteRenderer:
   m_Size: {x: 3.5555556, y: 3.5555556}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1153104039
@@ -73385,7 +73397,7 @@ MonoBehaviour:
   gameplay: {fileID: 1653246262}
   deathScreen: {fileID: 659579314}
   resetGameScript: {fileID: 1810326487}
-  playerObject: {fileID: 272813338}
+  playerObject: {fileID: 1142223280}
   music: {fileID: 1853658787}
 --- !u!4 &1810326486
 Transform:
@@ -73550,7 +73562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8784d600995b04397a92641b1feb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 272813339}
+  player: {fileID: 1142223281}
   offset: {x: 0, y: 0, z: -1}
 --- !u!81 &1821016261
 AudioListener:

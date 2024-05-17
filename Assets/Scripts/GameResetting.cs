@@ -3,8 +3,9 @@ using UnityEngine;
 public class GameResetting : MonoBehaviour
 {
     public GameObject playerObject; // Reference to the player GameObject
+    public GameObject bossObject; // Reference to the boss GameObject
     private PlayerHealth playerHealth;
-    public GameObject exampleEnemyPrefab; // Example enemy prefab to destroy
+    // public GameObject exampleEnemyPrefab; // Example enemy prefab to destroy
 
     void Start()
     {
@@ -21,24 +22,25 @@ public class GameResetting : MonoBehaviour
     void ResetPlayer()
     {
         playerObject.transform.position = Vector3.zero; // Reset position
+        bossObject.transform.position = new Vector3(-15,0,0); // Reset position
         playerHealth.currentHealth = playerHealth.maxHealth;
-    }
+    } 
 
     public void ResetGame()
     {
         // Reset Player
         ResetPlayer();
-
+        
         // Destroy all active enemies instantiated from the example enemy prefab
         Enemy[] enemies = FindObjectsOfType<Enemy>();
         foreach (Enemy enemy in enemies)
         {
-            if (enemy.gameObject.CompareTag(exampleEnemyPrefab.tag))
-            {
+            //if (enemy.gameObject.CompareTag(exampleEnemyPrefab.tag))
+            //{
                 Destroy(enemy.gameObject);
-            }
+            //}
         }
-
+        
         // Reset other game state
         // ...
     }
