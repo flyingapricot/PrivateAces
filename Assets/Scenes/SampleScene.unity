@@ -173,8 +173,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25745ddb7e40574a861f0ba9f4229fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 859838914}
+  firePoint_Left: {fileID: 0}
+  firePoint_Right: {fileID: 0}
+  firePoint_Bottom: {fileID: 0}
+  firePoint_Top: {fileID: 0}
   bulletPrefab: {fileID: 1901397443294861216, guid: ed421c2cc346bc84dbacd3dd806e5d48, type: 3}
+  mainCamera: {fileID: 0}
 --- !u!114 &390315752
 MonoBehaviour:
   m_ObjectHideFlags: 0
