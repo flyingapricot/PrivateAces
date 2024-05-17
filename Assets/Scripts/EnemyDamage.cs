@@ -9,9 +9,7 @@ public class Enemy : MonoBehaviour
     public Transform player;
     public float speed = 5.0f;
     private bool isCollidingWithPlayer = false;
-    public Animator animator;
     public int damagePerSecond = 5;
-    public Rigidbody2D rb;
     //public GameObject deathEffect;
 
     public void TakeDamage(int damage)
@@ -41,14 +39,8 @@ public class Enemy : MonoBehaviour
     {
         if (player != null)
         {
-            Vector2 direction = (player.position - transform.position).normalized; // Get the normalized direction to the player
-            animator.SetFloat("Horizontal", direction.x);
-            animator.SetFloat("Vertical", direction.y);
-            animator.SetFloat("Speed", direction.sqrMagnitude);
-            //transform.position += direction * speed * Time.deltaTime; // Move towards the player
-            rb.position += direction * speed * Time.deltaTime;
-            rb.MovePosition(rb.position);
-
+            Vector3 direction = (player.position - transform.position).normalized; // Get the normalized direction to the player
+            transform.position += direction * speed * Time.deltaTime; // Move towards the player
         }
     }
 
