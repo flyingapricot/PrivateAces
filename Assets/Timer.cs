@@ -3,11 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+//Singleton class to access timer variable from anywhere
 public class Timer : MonoBehaviour
 {
 
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] public float remainingTime;
+
+    // Static reference to the instance of the class
+    private static Timer _instance;
+
+    public static Timer Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<Timer>();
+
+                // If no instance was found, create a new GameObject and add the singleton script to it
+                if (_instance == null)
+                {
+                    GameObject singletonObject = new GameObject("MySingleton");
+                    _instance = singletonObject.AddComponent<Timer>();
+                }
+            }
+            return _instance;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
