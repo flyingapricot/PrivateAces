@@ -43,7 +43,15 @@ public class Timer : MonoBehaviour
     {
         if(remainingTime > 0)
         {
-            remainingTime -= Time.deltaTime;    
+            remainingTime -= Time.deltaTime;
+            if(remainingTime < 15)
+            {
+                //Change colour to red
+                timerText.color = Color.red;
+            }else
+            {
+                timerText.color = Color.white;
+            }
         }else if(remainingTime < 0)
         {
             remainingTime = 0;

@@ -10,13 +10,8 @@ public class BossSpawn : MonoBehaviour
 
     //public Animator animator;
 
-    [SerializeField] //Number of seconds till next enemy is spawned
-    private float interval;
 
-    [SerializeField]
-    private float minSpawn = 1;
-    [SerializeField]
-    private float maxSpawn = 2;
+    [SerializeField] public float bossSpawnInterval = 20;
 
 
     public Transform player; //Current position of the player
@@ -29,10 +24,8 @@ public class BossSpawn : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(Timer.Instance.remainingTime);
-
-        interval -= Time.deltaTime;
-        if (interval <= 0)
+        
+        if (Timer.Instance.remainingTime <= 0)
         {
 
             Enemy e = enemy.GetComponent<Enemy>();
@@ -50,7 +43,7 @@ public class BossSpawn : MonoBehaviour
 
     private void SetTimeUntilSpawn()
     {
-        interval = Random.Range(minSpawn, maxSpawn);
+        Timer.Instance.remainingTime = bossSpawnInterval;
     }
 
 }
