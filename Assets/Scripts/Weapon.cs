@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public Transform firePoint_Left;
-    public Transform firePoint_Right;
-    public Transform firePoint_Bottom;
-    public Transform firePoint_Top;
+    /*    public Transform firePoint_Left;
+        public Transform firePoint_Right;
+        public Transform firePoint_Bottom;
+        public Transform firePoint_Top;*/
+    public Transform firePoint;
     private Transform firePoint_main = null;
     private bool mouseDown = false;
     private float fireRate = 0.1f; // Seconds between each shot
@@ -20,16 +21,19 @@ public class Weapon : MonoBehaviour
     private void Update()
     {
 
-        if(Input.GetKey(KeyCode.W))
+/*        if (Input.GetKey(KeyCode.W))
         {
             firePoint_main = firePoint_Top;
-        }else if(Input.GetKey(KeyCode.S))
+        }
+        else if (Input.GetKey(KeyCode.S))
         {
             firePoint_main = firePoint_Bottom;
-        }else if(Input.GetKey(KeyCode.D))
+        }
+        else if (Input.GetKey(KeyCode.D))
         {
             firePoint_main = firePoint_Right;
-        }else if(Input.GetKey(KeyCode.A))
+        }
+        else if (Input.GetKey(KeyCode.A))
         {
             firePoint_main = firePoint_Left;
         }
@@ -43,9 +47,9 @@ public class Weapon : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             mouseDown = false;
-        }
+        }*/
 
-        if (mouseDown && Time.time >= nextFireTime)
+        if (Time.time >= nextFireTime)
         {
             // Call the method that should run repeatedly while the mouse is held down
             // Update the next fire time
@@ -73,7 +77,7 @@ public class Weapon : MonoBehaviour
     {
         //Shooting logic
         //StartCoroutine(DelayedAction(100.0f)); // Delay for 2 seconds
-        Instantiate(bulletPrefab,firePoint_main.position,firePoint_main.rotation);
+        Instantiate(bulletPrefab,firePoint.position,firePoint.rotation);
 /*        switch (d)
         {
             case DirectionEnum.LEFT:
