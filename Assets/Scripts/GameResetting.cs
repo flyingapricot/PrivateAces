@@ -20,6 +20,7 @@ public class GameResetting : MonoBehaviour
     // Reset the player to the starting position (0, 0, 0) and full health
     void ResetPlayer()
     {
+        Debug.LogWarning(playerHealth.maxHealth);
         playerObject.transform.position = Vector3.zero; // Reset position
         playerHealth.currentHealth = playerHealth.maxHealth;
     }
