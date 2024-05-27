@@ -7,6 +7,10 @@ public class BGMManager : MonoBehaviour
 
     void Start()
     {
+        // Ensure looping is enabled for both audio sources
+        mainMenuBGM.loop = true;
+        gameplayBGM.loop = true;
+
         PlayMainMenuBGM();
     }
 
@@ -37,3 +41,4 @@ public class BGMManager : MonoBehaviour
         mainMenuBGM.Stop();
     }
 }
+
